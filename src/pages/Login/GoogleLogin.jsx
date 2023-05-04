@@ -83,7 +83,6 @@ const GoogleLogin = () => {
         {user && <div>
             <h3>User: {user.displayName}</h3>
             <p>Email: {user.email}</p>
-            <img src={user.photoURL} alt="" />
         </div>
         }
     </div>

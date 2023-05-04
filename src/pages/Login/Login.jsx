@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Form,Link,useNavigate} from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProviders';
 import GoogleLogin from './GoogleLogin';
@@ -6,6 +6,7 @@ const Login = () => {
     const {signIn}=useContext(AuthContext);
 const navigate = useNavigate();
     const handleLoginSubmit = event =>{
+      const [error,setError]=useState('');
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
@@ -20,7 +21,8 @@ const navigate = useNavigate();
           form.reset()
         })
         .catch(error =>{
-          console.log(error);
+          console.error(error.message);
+          setError(error.message)
         })
     }
     return (
@@ -36,18 +38,19 @@ const navigate = useNavigate();
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
-                <input type="email" name='email' placeholder="email" className="input input-bordered" />
+                <input type="email" name='email' placeholder="email" className="input input-bordered" required />
               </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
-                <input type="password" name='password' placeholder="password" className="input input-bordered" />
+                <input type="password" name='password' placeholder="password" className="input input-bordered" required />
               
               </div>
               <div className="form-control mt-6">
                 <button className="btn btn-primary">Login</button>
               </div>
+            {/* <p className='text-red-500'>{error}</p> */}
             </Form>
             <Link  to="/register"> Don't have an account <button  className="btn btn-active btn-link">Please register</button> </Link>
             <GoogleLogin></GoogleLogin>
