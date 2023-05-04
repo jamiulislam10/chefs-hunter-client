@@ -9,7 +9,7 @@ const LoginLayouts = () => {
     return (
         <div>
           <NavigationBar></NavigationBar>
-          <Blog></Blog>
+        <Outlet></Outlet>
        <Footer></Footer>
         </div>
     );

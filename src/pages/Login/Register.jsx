@@ -3,6 +3,7 @@ import {Form, Link} from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProviders';
 
 const Register = () => {
+    
     const { user, createUser } = useContext(AuthContext);
     console.log(createUser);
 
@@ -12,7 +13,8 @@ const Register = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, email, password);
+        const photo= form.photo.value;
+        console.log(name, email, password,photo);
 
         createUser(email, password)
             .then(result => {
@@ -43,6 +45,12 @@ const Register = () => {
                             <span className="label-text">Email</span>
                         </label>
                         <input type="email" name='email' placeholder="email" className="input input-bordered" />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Photo</span>
+                        </label>
+                        <input type="text" name='photo' placeholder="phot url" className="input input-bordered" />
                     </div>
                     <div className="form-control">
                         <label className="label">
