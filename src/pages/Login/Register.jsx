@@ -4,11 +4,16 @@ import { AuthContext } from '../../Providers/AuthProviders';
 
 const Register = () => {
     const [error,setError]= useState('')
+    const [success,setSuccess]= useState('')
     
     const { user, createUser } = useContext(AuthContext);
     console.log(createUser);
 
     const handleRegisterSubmit = (event) => {
+
+      
+
+
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
@@ -16,15 +21,25 @@ const Register = () => {
         const password = form.password.value;
         const photo= form.photo.value;
         console.log(name, email, password,photo);
+        setSuccess('')
+        setError('')
 
+
+        if (!/(?=.*?[A-Z])/.test(password)) {
+            setError('Please add at least one uppercase')
+            return  
+        }
         createUser(email, password)
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
-                form.reset();
+                setError('');
+                event.target.reset();
+                setSuccess('User has created Success')
             })
             .catch(error => {
                 setError(error.message);
+                
             })
         }
     return (
@@ -65,6 +80,7 @@ const Register = () => {
                     </div>
                 </Form>
                 <p className='text-red-700'>{error}</p>
+                <p className='text-blue-700'>{success}</p>
 
                 <Link to="/login" className='pl-5 pb-5'> Already have an account<button className="btn btn-active btn-link">please login</button>  </Link>
             </div>
