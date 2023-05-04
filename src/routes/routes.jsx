@@ -56,7 +56,8 @@ const router = createBrowserRouter([
     },
     {
         path: "services/:id",
-        element: <ViewDetails></ViewDetails>
+        element: <ViewDetails></ViewDetails>,
+        loader:({params}) => fetch(`http://localhost:5000/categories/${params.id}`)
 
     },
 
