@@ -4,6 +4,8 @@ import Cards from '../Cards/Cards';
 import { AuthContext } from '../../../Providers/AuthProviders';
 import { FaUserCircle } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import ActiveLink from '../../ActiveLink/ActiveLink';
+import NavigationBar from '../NavigationBar/NavigationBar';
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
    const handleLogOut = () =>{
@@ -13,33 +15,7 @@ const Navbar = () => {
    }
     return (
         <div>
-            <div className="navbar bg-base-100 m-auto">
-                <div className="navbar-start">
-                    <a className="btn btn-ghost normal-case text-xl">Chefs Hunters</a>
-                </div>
-                <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
-
-                        <li><Link to='/'>Home</Link></li>
-                        <li tabIndex={0}>
-                        </li>
-                        <li><a>Blog</a></li>
-
-                    </ul>
-                </div>
-                <div className="navbar-end m-4">
-                    {user && <a className="bt"><FaUserCircle style={{ fontSize: '2.5rem' }}></FaUserCircle></a>
-                    }
-                    {user ? <button onClick={handleLogOut} className='btn btn-primary'>Logout</button>
-                    :
-                    <button className='btn btn-primary'><Link to='/login'>Login</Link></button>
-                     }
-
-                </div>
-                <div>
-
-                </div>
-            </div>
+          <NavigationBar></NavigationBar>
             <div>
                 <div className="carousel w-full">
                     <div id="slide1" className="carousel-item relative w-full">

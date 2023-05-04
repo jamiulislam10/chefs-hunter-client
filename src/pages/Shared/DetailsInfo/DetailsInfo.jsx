@@ -1,7 +1,8 @@
 import React from 'react';
 
-const DetailsInfo = ({card}) => {
-    const {name,id,experience,recipes,likes,photo}= card;
+const DetailsInfo = ({dat}) => {
+    const {name,id,experience,recipes,likes,photo}= dat;
+    console.log(dat)
     return (
         <div className="card w-96 bg-base-100 shadow-xl">
         <figure><img src={photo} alt="Shoes" /></figure>

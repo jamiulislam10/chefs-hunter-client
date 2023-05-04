@@ -7,6 +7,9 @@ import Register from "../pages/Login/Register";
 import ViewLayOuts from "../layouts/ViewLayOuts";
 import ViewDetails from "../pages/Shared/ViewDetails";
 import AllCards from "../pages/Shared/AllCards/AllCards";
+import Blog from "../pages/Blog/Blog";
+import BlogLayouts from "../layouts/BlogLayouts";
+import FourOFour from "../FourOFour/FourOFour";
 
 const router = createBrowserRouter([
     {
@@ -17,6 +20,7 @@ const router = createBrowserRouter([
                 path: '/',
                 element: <Home></Home>
             },
+
 
         ]
 
@@ -33,24 +37,41 @@ const router = createBrowserRouter([
         ]
     },
     {
+        path: '/blog',
+        element: <Blog></Blog>,
+
+
+
+    },
+    {
         path: '/register',
         element: <Register></Register>
     },
+
+
+
     {
         path: "services",
         element: <ViewLayOuts></ViewLayOuts>,
-        children: [
-            {
-                path:"/services",
-                element:<AllCards></AllCards>,
-            },
-            {
-        path: ':id',
-        element: <ViewDetails></ViewDetails>
     },
-        ]
+    {
+        path: "services/:id",
+        element: <ViewDetails></ViewDetails>
+
+    },
+
+
+
+
+
+
+
+
+    {
+        path: '*',
+        element: <FourOFour></FourOFour>
     }
-    
+
 ])
 
 export default router;

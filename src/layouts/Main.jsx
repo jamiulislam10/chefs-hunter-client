@@ -2,12 +2,14 @@
 import React from 'react';
 import Footer from '../pages/Shared/Footer/Footer';
 import Navbar from '../pages/Shared/Navbar/Navbar';
-import { Outlet } from 'react-router-dom';
+import { Outlet,useNavigation } from 'react-router-dom';
 
 const Main = () => {
+    const navigation = useNavigation();
     return (
         <div>
             <Navbar></Navbar>
+            <div>{navigation.state === 'loading' && 'Loading sssssssss...' }</div>
             <Outlet></Outlet>
             <Footer></Footer>
         </div>
