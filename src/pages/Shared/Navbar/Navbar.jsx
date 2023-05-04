@@ -6,6 +6,7 @@ import { FaUserCircle } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import ActiveLink from '../../ActiveLink/ActiveLink';
 import NavigationBar from '../NavigationBar/NavigationBar';
+import Banner from '../../Banner/Banner';
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
    const handleLogOut = () =>{
@@ -17,7 +18,7 @@ const Navbar = () => {
         <div>
           <NavigationBar></NavigationBar>
             <div>
-                <div className="carousel w-full">
+                <div className="carousel w-full mb-6">
                     <div id="slide1" className="carousel-item relative w-full">
                         <img src="https://www.chinadaily.com.cn/china/images/attachement/jpg/site1/20170329/eca86bd9e2f91a455efb0c.jpg" className="w-full" />
                         <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -48,6 +49,8 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
+            <Banner></Banner>
+
             <Cards></Cards>
         </div>
     );

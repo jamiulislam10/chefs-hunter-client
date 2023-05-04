@@ -12,11 +12,9 @@ const AllCards = ({category}) => {
     <p className='font-medium'>likes: {likes}</p>
     <h1 className='font-medium'>experience: {experience}</h1>
     <div className="card-actions justify-end">
-       {/* <Link to="/news">View Recipes</Link> */}
        <Link to={`/services/${category?.id}`}>
-              <button>Details</button>
+       <button className="btn btn-primary">View Recipes</button>
             </Link>
-       {/* <button className="btn btn-primary">View Recipes</button> */}
     </div>
   </div>
 </div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 // import { useParams } from "react-router-dom"
 import { useLoaderData } from "react-router-dom"
+import Navbar from './Navbar/Navbar';
 const ViewDetails = () => {
   const news = useLoaderData();
   const { name,sell, experience, recipes, likes, photo, description, recipe,rating,methHood, } = news.selectedNews;
@@ -9,6 +10,7 @@ const ViewDetails = () => {
   return (
    
   <div>
+   
   <div className="card w-96 h-100 bg-base-100 shadow-xl ml-96 mt-6">
     <figure><img className='w-full' src={photo} alt="Shoes" /></figure>
     <div className="card-body">
