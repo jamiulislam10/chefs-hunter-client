@@ -28,14 +28,13 @@ const GoogleLogin = () => {
     }
 
     const handleGithubSignIn = () => {
-        // const navigate = useNavigate();
 
         signInWithPopup(auth, githubProvider)
         .then( result => {
             const loggedUser = result.user;
             console.log(loggedUser);
             setUser(loggedUser);
-            // navigate('/')
+            navigate('/')
         })
         .catch(error => {
             console.log(error)

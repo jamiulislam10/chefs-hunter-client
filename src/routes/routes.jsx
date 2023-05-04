@@ -10,6 +10,7 @@ import AllCards from "../pages/Shared/AllCards/AllCards";
 import Blog from "../pages/Blog/Blog";
 import BlogLayouts from "../layouts/BlogLayouts";
 import FourOFour from "../FourOFour/FourOFour";
+import PrivateRoute from "./PrevateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -56,7 +57,7 @@ const router = createBrowserRouter([
     },
     {
         path: "services/:id",
-        element: <ViewDetails></ViewDetails>,
+        element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
         loader:({params}) => fetch(`http://localhost:5000/categories/${params.id}`)
 
     },
