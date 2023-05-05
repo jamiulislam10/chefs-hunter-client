@@ -3,14 +3,14 @@ import { Form,Link,useLocation,useNavigate} from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProviders';
 import GoogleLogin from './GoogleLogin';
 const Login = () => {
+  const [error,setError]=useState('');
     const {signIn}=useContext(AuthContext);
 const navigate = useNavigate();
 const location = useLocation();
 console.log('login loca',location);
 const from = location.state?.from?.pathname|| '/'
 
-    const handleLoginSubmit = event =>{
-      const [error,setError]=useState('');
+const handleLoginSubmit = event =>{
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
@@ -22,11 +22,12 @@ const from = location.state?.from?.pathname|| '/'
           const loggedUser = result.user;
           console.log(loggedUser);
           navigate(from, {replace:true})
-          form.reset()
+          // form.reset()
         })
         .catch(error =>{
-          console.error(error.message);
+          console.log(error);
           setError(error.message)
+          event.target.reset()
         })
     }
     return (
@@ -55,6 +56,7 @@ const from = location.state?.from?.pathname|| '/'
                 <button className="btn btn-primary">Login</button>
               </div>
             </Form>
+            <p className='text-red-500 text-center'>{error}</p>
             <Link  to="/register"> Don't have an account <button  className="btn btn-active btn-link">Please register</button> </Link>
             <GoogleLogin></GoogleLogin>
           </div>
