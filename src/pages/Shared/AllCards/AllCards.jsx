@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Hire from '../../Hire';
  
 const AllCards = ({category}) => {
     const {name,id,experience,recipes,likes,photo,}= category;
     return (
-        <div className="card card-compact w-96 h-100 bg-base-100 shadow-xl ">
+   <div>
+         <div className="card card-compact w-96 h-100 bg-base-100 shadow-xl ">
   <figure><img className='w-200 h-200' src={photo} alt="Shoes" /></figure>
   <div className="card-body text-center">
     <h2 className="card-title pl-28">Name: {name}</h2>
@@ -18,6 +20,7 @@ const AllCards = ({category}) => {
     </div>
   </div>
 </div>
+   </div>
     );
 };
 

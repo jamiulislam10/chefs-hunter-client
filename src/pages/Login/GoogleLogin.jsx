@@ -55,7 +55,6 @@ const GoogleLogin = () => {
     
     return (
         <div>
-        {/* user ? logout : sign in */}
 
         {
             user ?

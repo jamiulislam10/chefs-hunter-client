@@ -1,6 +1,8 @@
 import React, { useContext, useState } from 'react';
 import {Form, Link} from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProviders';
+import NavigationBar from '../Shared/NavigationBar/NavigationBar';
+import Footer from '../Shared/Footer/Footer';
 
 const Register = () => {
     const [error,setError]= useState('')
@@ -43,7 +45,10 @@ const Register = () => {
             })
         }
     return (
-        <div className="hero min-h-screen bg-base-200">
+
+        <div>
+            <NavigationBar></NavigationBar>
+            <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
             <div className="text-center lg:text-left">
                 <h1 className="text-5xl font-bold">Login now!</h1>
@@ -86,6 +91,8 @@ const Register = () => {
             </div>
         </div>
     </div>
+            <Footer></Footer>
+        </div>
     );
 };
 

@@ -5,35 +5,42 @@ export const AuthContext = createContext(null);
 const auth = getAuth(app);
 
 const AuthProviders = ({ children }) => {
-    const [user,setUser] = useState(null);
+    const [user, setUser] = useState(null);
+    const [loader, setLoder] = useState(true);
 
     const createUser = (email, password) => {
+        setLoder(true)
         return createUserWithEmailAndPassword(auth, email, password)
     };
     const signIn = (email, password) => {
+        setLoder(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
-    const logOut = () =>{
+    const logOut = () => {
+        setLoder(true)
         return signOut(auth);
     }
 
-    useEffect(()=>{
-const unsubscribe =  onAuthStateChanged(auth,loggedUser =>{
-    console.log('ligged state', loggedUser)
-    setUser(loggedUser)
-})
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, loggedUser => {
+            console.log('logged state', loggedUser)
+            setUser(loggedUser)
+            setLoder(false)
+        })
 
-return () =>{
-    unsubscribe();
-}
-    },[])
+        return () => {
+            unsubscribe();
+     
+        }
+    }, [])
 
     const authInfo = {
         user,
         createUser,
         signIn,
-        logOut
+        logOut,
+        loader
     }
     return (
         <AuthContext.Provider value={authInfo}>

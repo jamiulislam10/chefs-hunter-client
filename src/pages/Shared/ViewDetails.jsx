@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { useLoaderData } from "react-router-dom"
 import Navbar from './Navbar/Navbar';
 import Swal from 'sweetalert2'
+import NavigationBar from './NavigationBar/NavigationBar';
+import Footer from './Footer/Footer';
 const ViewDetails = () => {
   const news = useLoaderData();
   const { name, sell, experience, recipes, likes, photo, description, recipe, rating, methHood, } = news.selectedNews;
@@ -57,7 +59,9 @@ const ViewDetails = () => {
   return (
 
     <div>
-
+      <div>
+        <NavigationBar></NavigationBar>
+      </div>
       <div className="card w-96 h-100 bg-base-100 shadow-xl ml-96 mt-6">
         <figure><img className='w-full' src={photo} alt="Shoes" /></figure>
         <div className="card-body">
@@ -95,7 +99,7 @@ const ViewDetails = () => {
               <p>cooking method :{recipe[1].methHood}</p>
               <p>sell :{recipe[1].sell}</p>
               <div className="card-actions justify-end">
-              <div onClick={handleAccepted1}>
+                <div onClick={handleAccepted1}>
                   <button className='btn btn-primary' disabled={!open1} >
                     Favorite
                   </button>
@@ -113,7 +117,7 @@ const ViewDetails = () => {
               <p>cooking method :{recipe[2].methHood}</p>
               <p>sell :{recipe[2].sell}</p>
               <div className="card-actions justify-end">
-              <div onClick={handleAccepted2}>
+                <div onClick={handleAccepted2}>
                   <button className='btn btn-primary' disabled={!open2} >
                     Favorite
                   </button>
@@ -124,7 +128,7 @@ const ViewDetails = () => {
         </div>
 
       </div>
-
+      <div><Footer></Footer></div>
     </div>
 
 

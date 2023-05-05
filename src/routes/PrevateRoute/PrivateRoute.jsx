@@ -4,11 +4,12 @@ import { AuthContext } from '../../Providers/AuthProviders';
 
 const PrivateRoute = ({children}) => {
     
-        const {user, loading} = useContext(AuthContext);
+        const {user, loader} = useContext(AuthContext);
         const location = useLocation();
+        console.log(location);
         console.log('user in private route', user);
-        if(loading){
-            return <Spinner animation="border" variant="primary" />
+        if(loader){
+            return<button className="btn loading">loading</button>
         }
     
         if(user){

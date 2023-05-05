@@ -1,10 +1,14 @@
 import React, { useContext, useState } from 'react';
-import { Form,Link,useNavigate} from 'react-router-dom';
+import { Form,Link,useLocation,useNavigate} from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProviders';
 import GoogleLogin from './GoogleLogin';
 const Login = () => {
     const {signIn}=useContext(AuthContext);
 const navigate = useNavigate();
+const location = useLocation();
+console.log('login loca',location);
+const from = location.state?.from?.pathname|| '/'
+
     const handleLoginSubmit = event =>{
       const [error,setError]=useState('');
         event.preventDefault();
@@ -17,7 +21,7 @@ const navigate = useNavigate();
         .then(result =>{
           const loggedUser = result.user;
           console.log(loggedUser);
-          navigate('/')
+          navigate(from, {replace:true})
           form.reset()
         })
         .catch(error =>{
@@ -50,7 +54,6 @@ const navigate = useNavigate();
               <div className="form-control mt-6">
                 <button className="btn btn-primary">Login</button>
               </div>
-            {/* <p className='text-red-500'>{error}</p> */}
             </Form>
             <Link  to="/register"> Don't have an account <button  className="btn btn-active btn-link">Please register</button> </Link>
             <GoogleLogin></GoogleLogin>
