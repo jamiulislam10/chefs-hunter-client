@@ -62,7 +62,7 @@ const ViewDetails = () => {
       <div>
         <NavigationBar></NavigationBar>
       </div>
-      <div className="card w-96 h-100 bg-base-100 shadow-xl ml-96 mt-6">
+      <div className="card w-96 h-100 bg-base-100 shadow-xl lg:ml-96 mt-6 sm:ml-32">
         <figure><img className='w-full' src={photo} alt="Shoes" /></figure>
         <div className="card-body">
           <h2 className="card-title">{name}</h2>
@@ -71,7 +71,7 @@ const ViewDetails = () => {
           <p>experience: {experience}</p>
         </div>
       </div>
-      <div className='grid grid-cols-3 ml-40 mt-6 '>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  lg:ml-40  sm:ml-28 mt-6 '>
         <div>
           <div className="card w-56  bg-base-100 shadow-xl">
             <figure><img src={recipe[0].image} /></figure>

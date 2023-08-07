@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Hire from '../../Hire';
  
 const AllCards = ({category}) => {
     const {name,id,experience,recipes,likes,photo,}= category;
@@ -15,7 +14,8 @@ const AllCards = ({category}) => {
     <h1 className='font-medium'>experience: {experience}</h1>
     <div className="card-actions justify-end">
        <Link to={`/services/${category?.id}`}>
-       <button className="btn btn-primary">View Recipes</button>
+<div className='pr-24'>       <button className="btn btn-primary ">View Recipes</button>
+</div>
             </Link>
     </div>
   </div>

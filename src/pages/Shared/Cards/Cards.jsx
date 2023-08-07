@@ -15,9 +15,9 @@ const Cards = () => {
         <div>
 
         
-         <h4 className='text-center mt-3 mb-3 text-blue-700 text-5xl font-bold'>Brand news <span className='text-red-700'>Chefs</span>  </h4>
+         <h4 className='text-center mt-3 mb-3 text-blue-700 text-5xl font-bold'>Brand new <span className='text-red-700'>Chefs</span>  </h4>
         
-        <div className='grid grid-cols-3 gap-4 mt-4'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  '>
             {
                 categories.map(category => <AllCards
                 key={category.id}
